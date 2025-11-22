@@ -2,30 +2,36 @@
 # Sample structure to collect user input and validate it.
 import json
 
-def get_user_input():
-    machines = []
+def collect_user_input():
+    machines_list = []
     while True:
-        name = input("Enter machine name (or 'done' to finish): ")
-        if name.lower() == 'done':
+        machine_name = input("Enter machine name (or 'done' to finish): ")
+        if machine_name.lower() == 'done':
             break
-        os = input("Enter OS (Ubuntu/CentOS): ")
-        cpu = input("Enter CPU (e.g., 2vCPU): ")
-        ram = input("Enter RAM (e.g., 4GB): ")
-        instance_data = {"name": name, "os": os, "cpu": cpu, "ram": ram}
+        operating_system = input("Enter OS (Ubuntu/CentOS): ")
+        cpu_cores = input("Enter CPU (e.g., 2vCPU): ")
+        ram_size = input("Enter RAM (e.g., 4GB): ")
+        
+        machine_details = {
+            "name": machine_name,
+            "os": operating_system,
+            "cpu": cpu_cores,
+            "ram": ram_size
+        }
         # Validate input (to be implemented by the student)
-        # Example: validate_instance_input(instance_data)
-        machines.append(instance_data)
+        # Example: validate_instance_input(machine_details)
+        machines_list.append(machine_details)
     
-    return machines
+    return machines_list
 
 # Save to file
-instances = get_user_input()
-with open("configs/instances.json", "w") as f:
-    json.dump(instances, f, indent=4)
+machine_instances = collect_user_input()
+with open("configs/instances.json", "w") as file:
+    json.dump(machine_instances, file, indent=4)
 
 ## **2. Class Structure for Machine Representation**
 # Basic class structure for managing machine objects
-class Machine:
+class Computer:
     def __init__(self, name, os, cpu, ram):
         self.name = name
         self.os = os
@@ -44,21 +50,21 @@ class Machine:
         print(f"Provisioning {self.name}: {self.os}, {self.cpu}, {self.ram}")
 
 # Example usage:
-machine = Machine("web-server", "Ubuntu", "2vCPU", "4GB")
-machine.log_creation()
+example_machine = Computer("web-server", "Ubuntu", "2vCPU", "4GB")
+example_machine.log_creation()
 
 ## **3. Running Bash Scripts from Python**
 import subprocess
 
-def run_setup_script():
+def execute_setup_script():
     try:
         subprocess.run(["bash", "scripts/setup_nginx.sh"], check=True)
         print("[INFO] Nginx installation completed.")
-    except subprocess.CalledProcessError as e:
-        print(f"[ERROR] Failed to install Nginx: {e}")
+    except subprocess.CalledProcessError as error:
+        print(f"[ERROR] Failed to install Nginx: {error}")
 
 # Example call:
-# run_setup_script()
+# execute_setup_script()
 
 ## **4. Logging & Error Handling**
 import logging
@@ -86,7 +92,7 @@ log_message("Provisioning failed due to network issue.", level="error")
 # src/__init__.py (empty file to make this a package)
 
 # src/machine.py
-class Machine:
+class Computer:
     def __init__(self, name, os, cpu, ram):
         self.name = name
         self.os = os
@@ -104,7 +110,7 @@ class Machine:
 # src/logger.py
 import logging
 
-def setup_logging():
+def configure_logging():
     logging.basicConfig(
         filename='logs/provisioning.log',
         level=logging.INFO,
@@ -112,19 +118,19 @@ def setup_logging():
     )
     return logging.getLogger()
 
-logger = setup_logging()
+logger = configure_logging()
 
 # Example of using the logger
 # logger.info("This is a log message")
 
 # main.py (Example integration)
-from src.machine import Machine
+from src.machine import Computer
 from src.logger import logger
 
 def main():
-    machine = Machine("db-server", "CentOS", "4vCPU", "8GB")
-    logger.info(f"Provisioning {machine.name}")
-    print(machine.to_dict())
+    database_machine = Computer("db-server", "CentOS", "4vCPU", "8GB")
+    logger.info(f"Provisioning {database_machine.name}")
+    print(database_machine.to_dict())
 
 if __name__ == "__main__":
     main()

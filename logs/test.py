@@ -133,3 +133,32 @@ if __name__ == "__main__":
 # - Extend validation logic
 # - Integrate more services
 # - Replace mock provisioning with AWS/Terraform when those modules are learned
+
+import subprocess
+
+def run_setup_script():
+    try:
+        subprocess.run(["bash", "scripts/setup_nginx.sh"], check=True)
+        print("[INFO] Nginx installation completed.")
+    except subprocess.CalledProcessError as e:
+        print(f"[ERROR] Failed to install Nginx: {e}")
+
+# run_setup_script()
+
+import logging
+
+logging.basicConfig(
+    filename='logs/provisioning.log',
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+
+def log_message(message, level="info"):
+    if level == "error":
+        logging.error(message)
+    else:
+        logging.info(message)
+    print(message)
+
+log_message("Provisioning started.")
+log_message("Provisioning failed due to network issue.", level="error")
