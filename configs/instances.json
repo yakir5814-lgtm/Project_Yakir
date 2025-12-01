@@ -1,14 +1,44 @@
 [
     {
-        "name": "'done'",
-        "os": "d",
-        "cpu": "d",
-        "ram": "d"
+        "name": "& C:/Users/yakir/AppData/Local/Microsoft/WindowsApps/python3.13.exe \"c:/Users/yakir/OneDrive/Desktop/Project Yakir/Project_Yakir/src/__pycache__/project1.py\"",
+        "os": "& C:/Users/yakir/AppData/Local/Microsoft/WindowsApps/python3.13.exe \"c:/Users/yakir/OneDrive/Desktop/Project Yakir/Project_Yakir/src/__pycache__/project1.py\"",
+        "cpu": "& C:/Users/yakir/AppData/Local/Microsoft/WindowsApps/python3.13.exe \"c:/Users/yakir/OneDrive/Desktop/Project Yakir/Project_Yakir/src/__pycache__/project1.py\"",
+        "ram": "v"
     },
     {
-        "name": "d",
-        "os": "d",
-        "cpu": "d",
-        "ram": "d"
+        "name": "v",
+        "os": "v",
+        "cpu": "v",
+        "ram": "v"
+    },
+    {
+        "name": "v",
+        "os": "v",
+        "cpu": "v",
+        "ram": "v"
+    },
+    {
+        "name": "v",
+        "os": "",
+        "cpu": "v",
+        "ram": "v"
+    },
+    {
+        "name": "v",
+        "os": "v",
+        "cpu": "v",
+        "ram": "& C:/Users/yakir/AppData/Local/Microsoft/WindowsApps/python3.13.exe \"c:/Users/yakir/OneDrive/Desktop/Project Yakir/Project_Yakir/src/__pycache__/project1.py\""
+    },
+    {
+        "name": "& C:/Users/yakir/AppData/Local/Microsoft/WindowsApps/python3.13.exe \"c:/Users/yakir/OneDrive/Desktop/Project Yakir/Project_Yakir/src/__pycache__/project1.py\"",
+        "os": "& C:/Users/yakir/AppData/Local/Microsoft/WindowsApps/python3.13.exe \"c:/Users/yakir/OneDrive/Desktop/Project Yakir/Project_Yakir/src/__pycache__/project1.py\"",
+        "cpu": "5",
+        "ram": "5"
+    },
+    {
+        "name": "5",
+        "os": "55",
+        "cpu": "5",
+        "ram": "5"
     }
 ]

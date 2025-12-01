@@ -25,30 +25,9 @@ with open("configs/instances.json", "w") as f:
 
 ## **2. Class Structure for Machine Representation**
 # Basic class structure for managing machine objects
-class Machine:
-    def __init__(self, name, os, cpu, ram):
-        self.name = name
-        self.os = os
-        self.cpu = cpu
-        self.ram = ram
-
-    def to_dict(self):
-        return {
-            "name": self.name,
-            "os": self.os,
-            "cpu": self.cpu,
-            "ram": self.ram
-        }
-
-    def log_creation(self):
-        print(f"Provisioning {self.name}: {self.os}, {self.cpu}, {self.ram}")
-
-# Example usage:
-machine = Machine("web-server", "Ubuntu", "2vCPU", "4GB")
-machine.log_creation()
 
 ## **3. Running Bash Scripts from Python**
-import subprocess
+import subproces
 
 def run_setup_script():
     try:
